@@ -26,6 +26,10 @@ body {
   border-radius: 8px; /* optional */
 }
 
+.talks td:first-child {
+  white-space: nowrap;
+}
+
 /* Text */
 h1 {
   font-family: "Nexa", sans-serif;

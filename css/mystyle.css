@@ -15,9 +15,15 @@ body {
 
 .content {
   width: 100%;
-  max-width: 650px;
+  max-width: 800px;
   margin: 0 auto;
   padding: 0 20px;
+}
+
+.profile-photo {
+  height: 250px;
+  width: auto;
+  border-radius: 8px; /* optional */
 }
 
 /* Text */

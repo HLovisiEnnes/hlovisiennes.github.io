@@ -1,20 +1,23 @@
-/* Make sizing more predictable */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
+html {
+  font-size: 16px;
 }
 
-/* Main page container */
+body {
+  margin: 0;
+  line-height: 1.5;
+}
+
 .content {
   width: 100%;
-  max-width: 960px;
+  max-width: 650px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
 /* Text */
@@ -23,17 +26,21 @@ h1 {
   font-size: 40px;
   line-height: 1.2;
   padding-top: 15px;
-  overflow-wrap: break-word;
 }
 
 h2 {
   font-family: "Nexa", sans-serif;
   font-size: 25px;
   line-height: 1.3;
-  overflow-wrap: break-word;
 }
 
-/* Images and icons */
+p,
+li,
+td {
+  overflow-wrap: anywhere;
+}
+
+/* General images */
 img {
   max-width: 100%;
   height: auto;
@@ -67,49 +74,85 @@ img {
   font-size: 16px;
   cursor: pointer;
   min-height: 50px;
-  width: 125px;
-  max-width: 100%;
+  width: 110px;
 }
 
 .button:hover {
   background-color: #ccccff;
 }
 
-/* Tables */
-table {
-  max-width: 100%;
-}
-
 table.colright td:nth-child(1) {
   text-align: right;
 }
 
-/* Phone layout */
-@media (max-width: 600px) {
+/* Mobile */
+@media (max-width: 700px) {
   .content {
+    max-width: none;
     padding: 0 16px;
   }
 
   h1 {
     font-size: 30px;
-    padding-top: 10px;
+    margin-top: 0;
   }
 
   h2 {
-    font-size: 21px;
+    font-size: 22px;
+  }
+
+  /* Header: name/address above photo */
+  .content > table:first-of-type,
+  .content > table:first-of-type tbody,
+  .content > table:first-of-type tr,
+  .content > table:first-of-type td {
+    display: block;
+    width: 100%;
+  }
+
+  .content > table:first-of-type {
+    border-spacing: 0;
+  }
+
+  .content > table:first-of-type td {
+    text-align: center;
+  }
+
+  .content > table:first-of-type img {
+    width: 120px;
+    height: auto;
+    margin: 10px auto;
+  }
+
+  /* Navigation buttons: wrap instead of remaining in one row */
+  .content > hr + table,
+  .content > hr + table tbody,
+  .content > hr + table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .content > hr + table tr {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .content > hr + table td {
+    display: block;
   }
 
   .button {
-    width: 100%;
-    height: auto;
-    min-height: 48px;
+    width: auto;
+    min-width: 100px;
+    min-height: 44px;
+    padding: 8px 12px;
   }
 
-  /* Prevent wide tables from breaking the page */
+  /* Long content tables */
   table {
-    display: block;
-    width: 100%;
-    overflow-x: auto;
+    max-width: 100%;
   }
 
   table.colright td:nth-child(1) {
